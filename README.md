@@ -57,10 +57,17 @@ redis-cli
 You can ping and check if redis is running by these commands:
 ```bash
 redis-cli
-> ping
+127.0.0.1:6379> ping
 PONG
 ```
 If the response say `PONG` that means the server is running.
+Also make sure to place the address of the redis server in the file
+`getsocial/setting.py`
+In my case its `127.0.0.1:6379` so i will place like this
+```python
+CELERY_BROKER_URL = "redis://127.0.0.1:6379"
+CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379"
+```
 To start the Celery worker and beat processes for asynchronous tasks, run the following commands in separate terminal:
 ```bash
 celery -A getsocial worker -l info
