@@ -62,7 +62,7 @@ PONG
 ```
 If the response say `PONG` that means the server is running.
 Also make sure to place the address of the redis server in the file
-`getsocial/setting.py`
+`getsocial/settings.py`
 In my case its `127.0.0.1:6379` so i will place like this
 ```python
 CELERY_BROKER_URL = "redis://127.0.0.1:6379"
