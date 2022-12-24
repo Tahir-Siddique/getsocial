@@ -73,6 +73,10 @@ To start the Celery worker and beat processes for asynchronous tasks, run the fo
 celery -A getsocial worker -l info
 celery -A getsocial beat -l info
 ```
+## Postman Collection
+The postman collection is available at `postman/GetSocial.postman_collection.json` that you can use to test apis by importing collection in Postman
+
+
 ## Testing
 To run the pytests, use the following command:
 
