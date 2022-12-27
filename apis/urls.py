@@ -1,14 +1,17 @@
 from django.urls import path, include
 from rest_framework import routers
-from .views import PostViewSet, signup, login, get_user
+from .views import PostViewSet, UserViewSet
 
 router = routers.DefaultRouter()
-router.register('posts', PostViewSet)
+router.register(r'posts', PostViewSet, basename='post')
+# router.register(r'users', UserViewSet, basename='user')
 
 urlpatterns = [
-
     path('', include(router.urls)),
-    path('user/signup', signup, name="signup"),
-    path('user/login', login, name="login"),
-    path('user/get_user', get_user, name="get-user"),
+    path('users/signup/',
+         UserViewSet.as_view({"post": "signup"}), name='signup'),
+    path('users/login/',
+         UserViewSet.as_view({"post": "login"}), name='login'),
+    path('users/get_user/',
+         UserViewSet.as_view({"get": "get_user"}), name='get_user'),
 ]
