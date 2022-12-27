@@ -47,7 +47,6 @@ class UserViewSet(viewsets.ViewSet):
     def login(self, request):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
-            print(serializer.data)
             email = serializer.validated_data['email']
             password = serializer.validated_data['password']
             user = authenticate(request, email=email, password=password)
