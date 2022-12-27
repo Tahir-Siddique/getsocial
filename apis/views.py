@@ -16,6 +16,11 @@ from django.shortcuts import get_object_or_404
 
 
 class UserViewSet(viewsets.ViewSet):
+
+    """
+    ViewSet for the CustomUser model. Allows users to login, signup, get_user.
+    """
+
     serializer_class = UserSerializer
 
     def signup(self, request):
